@@ -1,20 +1,16 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-interface TodoProps {
-  title: string;
-  id: number;
-}
-
-export const Data: TodoProps[] = [
-  { title: "Go to park", id: 1 },
-  { title: "learn JavaScript", id: 2 },
-  { title: "Exercise English", id: 3 },
-];
 interface Todo {
   title: string;
   id: number;
 }
+
+export const Data: Todo[] = [
+  { title: "Go to park", id: 1 },
+  { title: "learn JavaScript", id: 2 },
+  { title: "Exercise English", id: 3 },
+];
 
 interface TodoContextValue {
   todos: Todo[];
