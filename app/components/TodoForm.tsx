@@ -15,7 +15,7 @@ const TodoForm = () => {
     setTitle("");
   };
   return (
-    <div>
+    <div className=" mt-3">
       <h1 className="capitalize text-3xl m-5 text-slate-700">
         What do you want to do?
       </h1>

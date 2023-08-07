@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useState } from "react";
-
+import { useAlertContext } from "./AlertContext";
 interface Todo {
   title: string;
   id: number;
@@ -23,7 +23,6 @@ interface TodoContextValue {
 }
 
 const TodoContext = createContext<TodoContextValue | undefined>(undefined);
-
 export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -31,6 +30,8 @@ export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({
   const [title, setTitle] = useState<string>("");
   const [edit, setEdit] = useState<Todo>();
   const [isEdit, setIsEdit] = useState(false);
+  const { showAlert } = useAlertContext();
+
   const addTodo = (newTodo: Todo) => {
     if (isEdit === true) {
       setTodos((prevTodos) =>
@@ -38,10 +39,11 @@ export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({
           todo.id == edit?.id ? { ...todo, title: newTodo?.title } : todo
         )
       );
-
+      showAlert("a todo updated successfully!");
       setIsEdit(false);
     } else {
       setTodos((prevTodos) => [...prevTodos, newTodo]);
+      showAlert("new todo added successfully!");
     }
   };
 
@@ -55,6 +57,7 @@ export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({
   };
   const deleteTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+    showAlert("a todo deleted successfully!");
   };
 
   const value: TodoContextValue = {
