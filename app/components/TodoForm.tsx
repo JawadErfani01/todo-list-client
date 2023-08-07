@@ -3,7 +3,7 @@
 import { useTodoContext } from "../context/TodoContext";
 
 const TodoForm = () => {
-  const { addTodo, title, setTitle, isEdit } = useTodoContext();
+  const { addTodo, title, setTitle, isEdit, inputRef } = useTodoContext();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ const TodoForm = () => {
             required
             onChange={(e) => setTitle(e.target.value)}
             id="title"
+            ref={inputRef as React.RefObject<HTMLInputElement>}
             placeholder="todo..."
             className="rounded-l-xl px-6 py-3 outline-none border"
           />

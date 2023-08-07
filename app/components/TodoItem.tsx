@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { useTodoContext } from "../context/TodoContext";
 interface Todo {
   title: string;
@@ -11,14 +11,17 @@ interface TodoItemProps {
   todos: Todo[];
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, todos }) => {
-  const { deleteTodo, editTodo } = useTodoContext();
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+  const { deleteTodo, editTodo, inputRef } = useTodoContext();
   const { title, id } = todo;
 
   const handleDelete = (id: number) => {
     deleteTodo(id);
   };
   const handleEdit = (id: number) => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
     editTodo(id);
   };
 
