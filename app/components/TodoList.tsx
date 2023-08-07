@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import TodoItem from "./TodoItem";
-import { useTodoContext } from "../store/TodoContext";
+import { useTodoContext } from "../context/TodoContext";
 interface TodoProps {
   title: string;
   id: number;

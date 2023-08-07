@@ -1,6 +1,6 @@
 "use client";
 
-import { useTodoContext } from "../store/TodoContext";
+import { useTodoContext } from "../context/TodoContext";
 
 const TodoForm = () => {
   const { addTodo, title, setTitle, isEdit } = useTodoContext();

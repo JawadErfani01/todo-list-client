@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useTodoContext } from "../store/TodoContext";
+import { useTodoContext } from "../context/TodoContext";
 interface Todo {
   title: string;
   id: number;

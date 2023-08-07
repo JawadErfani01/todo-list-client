@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { TodoProvider } from "./store/TodoContext";
+import { TodoProvider } from "./context/TodoContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
