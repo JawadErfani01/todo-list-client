@@ -3,7 +3,7 @@
 import { useTodoContext } from "../context/TodoContext";
 interface Todo {
   title: string;
-  id: number;
+  _id: number;
 }
 
 interface TodoItemProps {
@@ -13,8 +13,7 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const { deleteTodo, editTodo, inputRef } = useTodoContext();
-  const { title, id } = todo;
-
+  const { title, _id } = todo;
   const handleDelete = (id: number) => {
     deleteTodo(id);
   };
@@ -33,13 +32,13 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
       <div className="flex justify-between">
         <button
           className="px-3 py-1 mx-3 text-sm bg-blue-500 text-white rounded"
-          onClick={() => handleEdit(id)}
+          onClick={() => handleEdit(_id)}
         >
           Edit
         </button>
         <button
           className="px-3 py-1 mx-3 text-sm bg-red-500 text-white rounded"
-          onClick={() => handleDelete(id)}
+          onClick={() => handleDelete(_id)}
         >
           Delete
         </button>
